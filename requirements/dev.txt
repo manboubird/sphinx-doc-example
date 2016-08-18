@@ -1,0 +1,4 @@
+-r prd.txt
+sphinx-autobuild==0.6.0
+rstcheck==2.0
+https://github.com/Rykka/instant-rst.py/archive/master.zip
