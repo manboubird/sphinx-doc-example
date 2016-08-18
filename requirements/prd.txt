@@ -1,2 +1,3 @@
 Sphinx==1.4.5
 sphinx-rtd-theme==0.1.9
+sphinx-jinja==0.2.1

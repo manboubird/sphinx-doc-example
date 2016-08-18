@@ -1,3 +1,4 @@
 *.swp
 build/
 .python-version
+*.pyc

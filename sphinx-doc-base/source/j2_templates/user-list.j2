@@ -1,0 +1,10 @@
+Users
+{{ options.header_char * 5 }}
+
+{% for user in users %}
+{% if user.is_active %}
+* `{{ user.name }} <{{ user.url }}>`_
+{% else %}
+* {{ user.name }} (Empty)
+{% endif %}
+{% endfor %}

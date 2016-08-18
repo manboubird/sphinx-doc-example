@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   auto-generated/page
 
 
 Indices and tables

@@ -1,0 +1,4 @@
+[
+  {"is_active":true, "name":"alice", "url":"http://test.com" },
+  {"is_active":false, "name":"john", "url":"http://test.com" }
+]

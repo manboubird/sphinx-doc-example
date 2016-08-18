@@ -29,7 +29,14 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ['sphinxcontrib.jinja']
+
+import json
+users = json.load(file('data/user-list.json'))
+jinja_contexts = { 
+  'raw_tpl': {'users': users },
+  'tpl_file_params': {'users': users } 
+}
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
