@@ -1,12 +1,14 @@
-import os
-import sys
-import urllib
-
+# -*- coding: utf-8 -*-
+"""
+    jinja
+    ~~~~~
+    Modified version of https://github.com/tardyp/sphinx-jinja
+    https://github.com/tardyp/sphinx-jinja/blob/3c779452aafd8fccd19acfb507380a3426aaaf80/sphinxcontrib/jinja.py
+"""
 from docutils import nodes
-from docutils.parsers.rst import Directive
-from docutils.parsers.rst import directives
+from docutils.parsers.rst import Directive, directives
 from docutils.statemachine import StringList
-from jinja2 import Template
+from jinja2 import Template, Environment, FileSystemLoader
 
 
 class JinjaDirective(Directive):
@@ -30,12 +32,9 @@ class JinjaDirective(Directive):
         }
 
         if template_filename:
-            reference_uri = directives.uri(template_filename)
-            template_path = urllib.url2pathname(reference_uri)
-            encoded_path = template_path.encode(sys.getfilesystemencoding())
-            imagerealpath = os.path.abspath(encoded_path)
-            with open(imagerealpath) as f:
-                tpl = Template(f.read())
+            loader = FileSystemLoader(searchpath="", encoding='utf8')
+            env = Environment(loader = loader)
+            tpl = env.get_template(template_filename)
         else:
             tpl = Template("\n".join(self.content))
         new_content = tpl.render(**cxt)

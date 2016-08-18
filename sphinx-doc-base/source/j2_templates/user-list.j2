@@ -1,3 +1,4 @@
+{% import 'source/j2_templates/macros/list-table.j2' as rst %}
 Users
 {{ options.header_char * 5 }}
 
@@ -8,3 +9,11 @@ Users
 * {{ user.name }} (Empty)
 {% endif %}
 {% endfor %}
+
+List-table macro
+^^^^^^^^^^^^^^^^
+
+{%- for rows in tables %}
+  {{ rst.display_list_table(rows) }}
+{% endfor %}
+

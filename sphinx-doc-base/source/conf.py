@@ -16,9 +16,9 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
+import os
+import sys
+sys.path.insert(0, os.path.abspath('exts'))
 
 # -- General configuration ------------------------------------------------
 
@@ -29,13 +29,19 @@
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinxcontrib.jinja']
+extensions = ['jinja']
 
 import json
 users = json.load(file('data/user-list.json'))
 jinja_contexts = { 
-  'raw_tpl': {'users': users },
-  'tpl_file_params': {'users': users } 
+  'tpl_file_params': {
+    'users': users,
+    'tables': [
+      [['tbl1-row1-col1','tbl1-row1-col2'],['tbl1-row2-col1','tbl1-row2-col2']],
+      [['tbl2-row1-col1','tbl2-row1-col2'],['tbl2-row2-col1','tbl2-row2-col2']],
+    ]
+  },
+  'raw_tpl': {'users': users}
 }
 
 # Add any paths that contain templates here, relative to this directory.
