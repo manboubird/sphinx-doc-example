@@ -13,3 +13,16 @@ Sphinx Document Example
   make -C sphinx-doc-base html
   open sphinx-doc-base/build/html/index.html
 
+Bumping version 
+
+.. code:: bash
+  
+  # bumpversion with commit and tag creation
+  bumpversion --list major
+
+  # push bumpversion commit
+  git push origin
+
+  # push new tags created by bumpversion
+  git push origin --tags
+
